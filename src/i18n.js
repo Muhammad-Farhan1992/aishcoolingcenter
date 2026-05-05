@@ -10,6 +10,7 @@ const resources = {
       top_menu_services: "Services",
       top_menu_location: "Location",
       top_menu_contact: "Contact",
+      top_menu_call: "Call Us:",
       home_title: "Aish Refrigeration and Air Conditioning Repairing & Services",
       home_desc: "We are a reliable provider of cooling solutions, dedicated to keeping homes and businesses comfortable all year round. We specialize in the installation, repair, and maintenance of air conditioners, refrigerators, and other cooling systems, ensuring optimal performance and energy efficiency. \n\nWith a team of skilled technicians, we handle everything from routine servicing to complex repairs, using quality tools and trusted methods. Our focus is on fast response, honest pricing, and long-lasting results, so you can count on your systems when you need them most. \n\nWhether it is a small fix or a complete system setup, we are committed to delivering dependable service and customer satisfaction every time.",
       services_title: "Our Services",
@@ -36,6 +37,7 @@ const resources = {
       top_menu_services: "الخدمات",
       top_menu_location: "الموقع",
       top_menu_contact: "اتصل بنا",
+      top_menu_call: "اتصل بنا:",
       home_title: "عيـش للتبريد وإصلاح وصيانة أجهزة التكييف",
       home_desc: "نحن مزود موثوق لحلول التبريد، نكرّس جهودنا للحفاظ على راحة المنازل والشركات على مدار العام. نتخصص في تركيب وصيانة وإصلاح أجهزة التكييف والثلاجات وأنظمة التبريد الأخرى، مع ضمان الأداء الأمثل وكفاءة استهلاك الطاقة.\n\nبفريق من الفنيين المهرة، نتولى كل شيء من الصيانة الدورية إلى الإصلاحات المعقدة، مستخدمين أدوات عالية الجودة وأساليب موثوقة. نركز على سرعة الاستجابة، والأسعار الشفافة، والنتائج طويلة الأمد، لتتمكن من الاعتماد على أنظمتك عندما تحتاجها أكثر.\n\nسواء كان الأمر إصلاحًا بسيطًا أو تركيب نظام كامل، فإننا ملتزمون بتقديم خدمة موثوقة وضمان رضا العملاء في كل مرة.",
       services_title: "خدماتنا",
@@ -51,7 +53,7 @@ const resources = {
       location_directions: "الحصول على الاتجاهات",
       contact_title: "اتصل بنا",
       contact_subtitle: "اتصل بنا لحجز موعد حسب الوقت الذي يناسبك",
-      contact_phone: "+٩٦٦٥٦٩١٢٦٩٦٠"
+      contact_phone: "٩٦٦٥٦٩١٢٦٩٦٠+"
     }
   }
 };
@@ -59,7 +61,7 @@ const resources = {
 i18n.use(initReactI18next).init({
   resources,
   lng: "ar",
-  fallbackLng: "en",
+  fallbackLng: "ar",
   interpolation: {
     escapeValue: false
   }

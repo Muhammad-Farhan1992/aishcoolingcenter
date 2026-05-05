@@ -15,3 +15,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@keyframes bgSlider {
+  0% {
+    background-image: url('https://media.istockphoto.com/id/1496035513/vector/realistic-conditioner-air-conditioners-with-ionizer-refreshing-cool-aires-purifier-on-ac.jpg?s=1024x1024&w=is&k=20&c=ZDLGA4Q3sPfFkRt5HmbujM8DhM9ICU4AA0uCv7FAlpc=');
+  }
+  33% {
+    background-image: url('https://media.istockphoto.com/id/1496035513/vector/realistic-conditioner-air-conditioners-with-ionizer-refreshing-cool-aires-purifier-on-ac.jpg?s=1024x1024&w=is&k=20&c=ZDLGA4Q3sPfFkRt5HmbujM8DhM9ICU4AA0uCv7FAlpc=');
+  }
+  66% {
+    background-image: url('https://media.istockphoto.com/id/1496035513/vector/realistic-conditioner-air-conditioners-with-ionizer-refreshing-cool-aires-purifier-on-ac.jpg?s=1024x1024&w=is&k=20&c=ZDLGA4Q3sPfFkRt5HmbujM8DhM9ICU4AA0uCv7FAlpc=');
+  }
+  100% {
+    background-image: url('https://media.istockphoto.com/id/1496035513/vector/realistic-conditioner-air-conditioners-with-ionizer-refreshing-cool-aires-purifier-on-ac.jpg?s=1024x1024&w=is&k=20&c=ZDLGA4Q3sPfFkRt5HmbujM8DhM9ICU4AA0uCv7FAlpc=');
+  }
+}
+
+.bg-slider {
+  background-size: cover;
+  background-position: center;
+  animation: bgSlider 12s infinite;
+  position: relative;
+}
+
+/* optional dark overlay */
+.bg-slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}

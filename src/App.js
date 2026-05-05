@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function App() {
   const { t, i18n } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const changeLang = (lang) => {
     i18n.changeLanguage(lang);
@@ -15,6 +16,14 @@ export default function App() {
       <header className="bg-white shadow-md fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
+          <nav className="space-x-6 hidden md:flex">
+            <a href="#home" className="px-3">{t("top_menu_home")}</a>
+            <a href="#services" className="px-3">{t("top_menu_services")}</a>
+            <a href="#location" className="px-3">{t("top_menu_location")}</a>
+            <a href="#contact" className="px-3">{t("top_menu_contact")}</a>
+            <p className="px-3 font-bold">{t("top_menu_call")} {t("contact_phone")}</p>
+          </nav>
+
           {/* LANGUAGE SWITCH */}
           <div className="flex gap-2">
             <button onClick={() => changeLang("en")} className="px-3 py-1 border rounded">
@@ -25,24 +34,36 @@ export default function App() {
               {t("lan_arabic")}
             </button>
           </div>
-
-          <nav className="space-x-6 hidden md:block">
-            <a href="#home" className="px-3">{t("top_menu_home")}</a>
-            <a href="#services" className="px-3">{t("top_menu_services")}</a>
-            <a href="#location" className="px-3">{t("top_menu_location")}</a>
-            <a href="#contact" className="px-3">{t("top_menu_contact")}</a>
-          </nav>
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
         </div>
-      </header>
+
+        {/* 📱 MOBILE MENU */}
+        {
+          menuOpen && (
+            <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4">
+              <a href="#home" onClick={() => setMenuOpen(false)}>{t("top_menu_home")}</a><br />
+              <a href="#services" onClick={() => setMenuOpen(false)}>{t("top_menu_services")}</a><br />
+              <a href="#about" onClick={() => setMenuOpen(false)}>{t("top_menu_location")}</a><br />
+              <a href="#contact" onClick={() => setMenuOpen(false)}>{t("top_menu_contact")}</a><br />
+              <p className="px-3 font-bold">{t("contact_phone")}</p>
+            </div>
+          )
+        }
+      </header >
 
       {/* HOME SECTION */}
-      <section id="home" className="bg-blue-600 text-white py-24 text-center mt-16">
+      < section id="home" className="bg-blue-600 text-white py-24 text-center mt-16" >
         <h1 className="text-4xl font-bold mb-4">{t("home_title")}</h1>
         <p className="mb-6 whitespace-pre-line">{t("home_desc")}</p>
-      </section>
+      </section >
 
       {/* SERVICES SECTION */}
-      <section id="services" className="py-16 px-6 md:px-20 bg-gray-100 text-center">
+      < section id="services" className="py-16 px-6 md:px-20 bg-gray-100 text-center" >
         <h2 className="text-3xl font-bold mb-10">{t("services_title")}</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -59,10 +80,10 @@ export default function App() {
             <p className="mb-6 whitespace-pre-line">{t("window_description")}</p>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* LOCATION SECTION */}
-      <section id="location" className="py-16 px-6 md:px-20 text-center">
+      < section id="location" className="py-16 px-6 md:px-20 text-center" >
         <h2 className="text-3xl font-bold mb-4">{t("location_title")}</h2>
         <p className="mb-6 whitespace-pre-line">{t("location_description")}</p>
 
@@ -94,10 +115,10 @@ export default function App() {
             {t("location_directions")}
           </a>
         </div>
-      </section>
+      </section >
 
       {/* CONTACT SECTION */}
-      <section
+      < section
         id="contact"
         className="bg-blue-600 text-white py-16 px-6 md:px-20 text-center"
       >
@@ -112,13 +133,13 @@ export default function App() {
         <p className="text-lg font-semibold">
           {t("contact_phone")}
         </p>
-      </section>
+      </section >
 
       {/* FOOTER */}
-      <footer className="bg-gray-900 text-white text-center py-4">
+      < footer className="bg-gray-900 text-white text-center py-4" >
         <p>© {new Date().getFullYear()} Aish Refrigeration and Air Conditioning. All rights reserved.</p>
-      </footer>
+      </footer >
 
-    </div>
+    </div >
   );
 }
