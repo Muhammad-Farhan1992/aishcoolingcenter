@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function App() {
   const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const images = [
+  "/images/service1.jpeg",
+  "/images/service2.jpeg",
+  "/images/service3.jpeg",
+  "/images/service4.jpeg"
+];
 
   const changeLang = (lang) => {
     i18n.changeLanguage(lang);
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  });
   return (
     <div className="font-sans text-gray-800">
 
@@ -50,7 +63,7 @@ export default function App() {
               <a href="#services" onClick={() => setMenuOpen(false)}>{t("top_menu_services")}</a><br />
               <a href="#about" onClick={() => setMenuOpen(false)}>{t("top_menu_location")}</a><br />
               <a href="#contact" onClick={() => setMenuOpen(false)}>{t("top_menu_contact")}</a><br />
-              <p className="px-3 font-bold">{t("contact_phone")}</p>
+              <p className="px-3 font-bold">{t("top_menu_call")} {t("contact_phone")}</p>
             </div>
           )
         }
@@ -60,6 +73,38 @@ export default function App() {
       < section id="home" className="bg-blue-600 text-white py-24 text-center mt-16" >
         <h1 className="text-4xl font-bold mb-4">{t("home_title")}</h1>
         <p className="mb-6 whitespace-pre-line">{t("home_desc")}</p>
+
+        {/* CAROUSEL CONTAINER */}
+        <div className="relative my-auto mx-auto h-[400px] overflow-hidden rounded-2xl shadow-lg">
+          {images.map((img, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${index === current ? "opacity-100" : "opacity-0"
+                }`}
+            >
+              <img
+                src={img}
+                alt="service"
+                className="w-full h-full object-cover"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/40"></div>
+            </div>
+          ))}
+
+          {/* Dots Navigation */}
+          <div className="absolute bottom-4 w-full flex justify-center gap-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrent(index)}
+                className={`w-3 h-3 rounded-full ${index === current ? "bg-white" : "bg-white/50"
+                  }`}
+              />
+            ))}
+          </div>
+        </div>
       </section >
 
       {/* SERVICES SECTION */}
