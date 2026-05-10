@@ -74,7 +74,7 @@ export default function App() {
         <h1 className="text-4xl font-bold mb-4">{t("home_title")}</h1>
         <p className="mb-6 whitespace-pre-line">{t("home_desc")}</p>
 
-        {/* CAROUSEL CONTAINER */}
+        {/* CAROUSEL CONTAINER FOR IMAGES*/}
         <div className="relative my-auto mx-auto h-[400px] overflow-hidden rounded-2xl shadow-lg">
           {images.map((img, index) => (
             <div
