@@ -6,10 +6,10 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [current, setCurrent] = useState(0);
   const images = [
-  "/images/service1.jpeg",
-  "/images/service2.jpeg",
+  "/images/service4.jpeg",
   "/images/service3.jpeg",
-  "/images/service4.jpeg"
+  "/images/service2.jpeg",
+  "/images/service1.jpeg"
 ];
 
   const changeLang = (lang) => {
